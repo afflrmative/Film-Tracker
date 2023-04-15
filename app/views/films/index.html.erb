@@ -1,0 +1,9 @@
+<h1>My films list</h1>
+
+<ul>
+    <% @films.each do |film| %>
+        <li>
+            <%= film.title  %>
+        </li>
+    <% end %>
+</ul>
