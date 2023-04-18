@@ -3,5 +3,7 @@ Rails.application.routes.draw do
   root "films#index"
 
   get "/films", to: "films#index"
-  get 'persons/profile', as: 'user_root'
+  get '/persons/profile', as: 'user_root'
 end
+
+

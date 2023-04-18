@@ -1,5 +1,4 @@
 <h1>My films list</h1>
-
 <ul>
     <% @films.each do |film| %>
         <li>
@@ -7,3 +6,12 @@
         </li>
     <% end %>
 </ul>
+
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+<% if user_signed_in? %>
+    <span>Вітаю, <%= current_user.email %></span>
+    <%= link_to 'Вийти', destroy_user_session_path, :method => :delete %>
+<% else %>
+    <%= link_to 'Увійти', new_user_session_path %> или <%= link_to 'Зареєструватись', new_user_registration_path %>
+<% end %>
