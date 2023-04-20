@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_20_111336) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_20_115725) do
+  create_table "comments", force: :cascade do |t|
+    t.string "commenter"
+    t.text "body"
+    t.integer "film_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["film_id"], name: "index_comments_on_film_id"
+  end
+
   create_table "films", force: :cascade do |t|
     t.string "title"
     t.text "description"
@@ -35,4 +44,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_20_111336) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "comments", "films"
 end

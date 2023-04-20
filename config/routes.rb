@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   root "films#index"
 
   get '/persons/profile', as: 'user_root'
-  resources :films
+  resources :films do
+    resources :comments
+  end
 end
 
 
