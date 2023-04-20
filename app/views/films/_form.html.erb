@@ -40,6 +40,22 @@
 <% end %>
 </div>
 
+<div>
+<%= form.label :time %><br>
+<%= form.text_area :time %>
+<% film.errors.full_messages_for(:time).each do |message| %>
+    <div><%= message %></div>
+<% end %>
+</div>
+
+<div>
+<%= form.label :genre %><br>
+<%= form.text_area :genre %>
+<% film.errors.full_messages_for(:genre).each do |message| %>
+    <div><%= message %></div>
+<% end %>
+</div>
+
   <div>
     <%= form.submit %>
   </div>
