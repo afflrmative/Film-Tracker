@@ -1,9 +1,18 @@
-<p>
-  <strong>Commenter:</strong>
-  <%= comment.commenter %>
-</p>
+<% unless comment.archived? %>
+    <p>
+    <strong>Commenter:</strong>
+    <%= comment.commenter %>
+    </p>
 
-<p>
-  <strong>Comment:</strong>
-  <%= comment.body %>
-</p>
+    <p>
+    <strong>Comment:</strong>
+    <%= comment.body %>
+    </p>
+
+    <p>
+    <%= link_to "Видалити коментар", [comment.film, comment], data: {
+                  turbo_method: :delete,
+                  turbo_confirm: "Ви впевнені?"
+                } %>
+  </p>
+<% end %>

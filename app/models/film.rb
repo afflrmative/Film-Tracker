@@ -1,5 +1,6 @@
 class Film < ApplicationRecord
-    has_many :comments
+    include Visible
+    has_many :comments, dependent: :destroy
 
     validates :title, presence: true
     validates :description, presence: true, length: {minimum: 10}
