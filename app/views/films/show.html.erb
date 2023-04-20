@@ -1,3 +1,15 @@
-<h1><%= @films.title %></h1>
+<h1><%= @film.title %></h1>
 
-<p><%= @films.description %></p>
+<p><b>Description:</b>  <%= @film.description %></p>
+<p><b>Actors:</b> <%= @film.actors %></p>
+<p><b>Director:</b> <%= @film.director %></p>
+<p><b>Rating:</b> <%= @film.rating %> /5</p>
+
+<%= link_to "Редагувати", edit_film_path(@film) %>
+<p><%= link_to "Destroy", film_path(@film), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %></p>
+<p><a href="http://127.0.0.1:3000/films">Back to list</a></p>
+
+

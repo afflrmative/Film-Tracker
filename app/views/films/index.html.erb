@@ -1,13 +1,14 @@
 <h1>My films list</h1>
+
 <ul>
-    <% @films.each do |film| %>
-        <li>
-            <a href="/films/<%= film.id %>">
-                <%= film.title%>
-            </a>
-        </li>
-    <% end %>
+  <% @films.each do |film| %>
+    <li>
+      <%= link_to film.title, film %>
+    </li>
+  <% end %>
 </ul>
+
+<%= link_to "Add film", new_film_path %>
 
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
