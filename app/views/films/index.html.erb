@@ -1,22 +1,17 @@
-<h1>My films list</h1>
-Our blog has <%= Film.public_count %> films and counting!
-<ul>
+<h3 class="card-header card-title">Our list has <%= Film.public_count %> public films and counting!</h3>
+
+<ul class="list-group">
   <% @films.each do |film| %>
     <% unless film.archived? %>
-      <li>
-        <%= link_to film.title, film %>
+      <li class="list-group-item">
+        <span class="list-group-item list-group-item-action"><%= link_to film.title, film %></span>
       </li>
     <% end %>
   <% end %>
 </ul>
 
-<%= link_to "Додати фільм", new_film_path %>
+
 
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
-<% if user_signed_in? %>
-    <span>Вітаю, <%= current_user.email %></span>
-    <%= link_to 'Вийти', destroy_user_session_path, :method => :delete %>
-<% else %>
-    <%= link_to 'Увійти', new_user_session_path %> или <%= link_to 'Зареєструватись', new_user_registration_path %>
-<% end %>
+

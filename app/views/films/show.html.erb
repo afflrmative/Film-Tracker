@@ -1,21 +1,62 @@
-<h1><%= @film.title %></h1>
 
-<p><b>Description:</b>  <%= @film.description %></p>
-<p><b>Actors:</b> <%= @film.actors %></p>
-<p><b>Director:</b> <%= @film.director %></p>
-<p><b>Rating:</b> <%= @film.rating %> /5</p>
-<p><b>Time:</b> <%= @film.time %></p>
-<p><b>Genre:</b> <%= @film.genre %></p>
+<div class="card">
+  <h3 class="card-header card-title"><%= @film.title %></h3>
+    <div class="card-body">
+    
+      <h5 class="card-text">
+        <b>Description:</b>
+      </h5>
+      <p class="card-text"><%= @film.description %></p>
 
-<%= link_to "Редагувати", edit_film_path(@film) %> |
-<%= link_to "Видалити", film_path(@film), data: {
-                    turbo_method: :delete,
-                    turbo_confirm: "Ви впевнені?"
-                  } %> |
-<a href="http://127.0.0.1:3000/films">Повернутись до списку</a>
+      <h5 class="card-text">
+        <b>Actors:</b>
+      </h5>
+      <p class="card-text"><%= @film.actors %></p>
 
-<h2>Comments</h2>
-<%= render @film.comments %>
+      <h5 class="card-text">
+        <b>Director:</b> 
+      </h5>
+      <p class="card-text"><%= @film.director %></p>
 
-<h2>Add a comment:</h2>
-<%= render 'comments/form'%>
+      <h5 class="card-text">
+        <b>Rating:</b> 
+      </h5>
+      <p class="card-text"><%= @film.rating %>/5</p>
+
+      <h5 class="card-text">
+        <b>Time:</b>
+      </h5>
+      <p class="card-text"> <%= @film.time %></p>
+
+      <h5 class="card-text">
+        <b>Genre:</b>
+      </h5>
+      <p class="card-text"><%= @film.genre %></p>
+      <div>
+        <span class="btn btn-outline-dark"><%= link_to "Редагувати", edit_film_path(@film) %></span>
+        <span class="btn btn-outline-dark"> <%= link_to "Видалити", film_path(@film), data: {
+                          turbo_method: :delete,
+                          turbo_confirm: "Ви впевнені?"
+                        } %> </span>
+        <a class="btn btn-outline-dark" class href="http://127.0.0.1:3000/films">Повернутись до списку</a>
+      </div>
+    </div>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="card">
+  <h4 class="card-header card-title">Comments</h4>
+  <%= render @film.comments %>
+</div>
+<div class="card">
+  <h4 class="card-header card-title">Add a comment:</h4>
+  <%= render 'comments/form'%>
+</div>

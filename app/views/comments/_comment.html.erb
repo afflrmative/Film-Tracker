@@ -1,18 +1,22 @@
 <% unless comment.archived? %>
-    <p>
-    <strong>Commenter:</strong>
-    <%= comment.commenter %>
-    </p>
+  <div class="card">
+    <div class="card-body">
+      <p>
+        <strong>Commenter:</strong>
+        <%= comment.commenter %>
+      </p>
 
-    <p>
-    <strong>Comment:</strong>
-    <%= comment.body %>
-    </p>
+      <p>
+        <strong>Comment:</strong>
+        <%= comment.body %>
+      </p>
 
-    <p>
-    <%= link_to "Видалити коментар", [comment.film, comment], data: {
-                  turbo_method: :delete,
-                  turbo_confirm: "Ви впевнені?"
-                } %>
-  </p>
+      <p>
+        <span class="btn btn-outline-dark"><%= link_to "Видалити коментар", [comment.film, comment], data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Ви впевнені?"
+                  } %></span>
+      </p>
+    </div>
+  </div>
 <% end %>
